@@ -1,3 +1,4 @@
+import { formatDateToJoined } from "../lib/helper"
 import { useUserStore } from "../store/user"
 import { UserCardSkeleton } from "./user-card-skeleton"
 
@@ -40,7 +41,7 @@ export function UserCard() {
             {user.login}
           </li>
           <li className="user-date" aria-label="Account creation date">
-            {user.created_at}
+            {formatDateToJoined(user?.created_at)}
           </li>
         </ul>
       </div>
@@ -94,7 +95,7 @@ export function UserCard() {
               fill="white"
             />
           </svg>
-          <a href={user.blog ? user.blog : "#"}>
+          <a href={user.blog ? `https://${user.blog}` : "#"} target="_blank">
             {user.blog ? user.blog : "Not Available"}
           </a>
         </li>

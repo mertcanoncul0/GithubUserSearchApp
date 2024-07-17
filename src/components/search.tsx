@@ -9,7 +9,7 @@ export function Search() {
   useEffect(() => {
     const search = window.location.search.replace("?name=", "") || ""
 
-    async function handlePopState() {
+    async function handleSearchState() {
       setIsError(false, 0)
       setIsPending(true)
 
@@ -37,7 +37,7 @@ export function Search() {
 
     if (search) {
       setForm({ username: search })
-      handlePopState()
+      handleSearchState()
     }
   }, [])
 
@@ -82,24 +82,26 @@ export function Search() {
 
   return (
     <form className="search-form" onSubmit={handleSubmit}>
-      <button
-        type="submit"
-        aria-label="Submit search github form"
-        disabled={isPending}
-      >
-        <img src="/search.svg" width={20} height={20} alt="Search Icon" />
-      </button>
-      <input
-        type="text"
-        name="username"
-        autoComplete={"off"}
-        value={form.username}
-        onChange={(e) => {
-          window.history.pushState({}, "", `?name=${e.currentTarget.value}`)
-          setForm({ username: e.currentTarget.value })
-        }}
-        placeholder="Search GitHub username…"
-      />
+      <div className="search-form-controller">
+        <button
+          type="submit"
+          aria-label="Submit search github form"
+          disabled={isPending}
+        >
+          <img src="/search.svg" width={20} height={20} alt="Search Icon" />
+        </button>
+        <input
+          type="text"
+          name="username"
+          autoComplete={"off"}
+          value={form.username}
+          onChange={(e) => {
+            window.history.pushState({}, "", `?name=${e.currentTarget.value}`)
+            setForm({ username: e.currentTarget.value })
+          }}
+          placeholder="Search GitHub username…"
+        />
+      </div>
       <button
         disabled={isPending}
         className="search-button"
