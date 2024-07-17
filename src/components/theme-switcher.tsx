@@ -1,4 +1,4 @@
-import { useEffect } from "preact/hooks"
+import { useEffect, useState } from "preact/hooks"
 import { useThemeSwitcher } from "../store/theme-switcher"
 
 export function ThemeSwitcher() {
@@ -13,18 +13,18 @@ export function ThemeSwitcher() {
   }, [theme])
 
   return (
-    <button onClick={handleSetTheme} className="theme-switcher-btn">
-      {theme ? (
-        <>
-          <span>DARK</span>
-          <img src="/moon.svg" alt="" />
-        </>
-      ) : (
-        <>
-          <span>LIGHT</span>
-          <img src="/sun.svg" alt="" />
-        </>
-      )}
+    <button className="theme-switcher-btn" onClick={handleSetTheme}>
+      <span>{theme ? "DARK" : "LIGHT"}</span>
+      <img
+        src="/moon.svg"
+        alt="Moon Icon"
+        className={`moon ${theme ? "active" : ""}`}
+      />
+      <img
+        src="/sun.svg"
+        alt="Sun Icon"
+        className={`sun ${theme ? "" : "active"}`}
+      />
     </button>
   )
 }
