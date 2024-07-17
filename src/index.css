@@ -148,13 +148,14 @@ header {
   background-color: var(--search-form-background-color);
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 20px 7px 20px 16px;
   margin-bottom: 16px;
   height: 60px;
   border-radius: 16px;
 
   & input {
-    padding-inline: 9px 7px;
+    padding-inline: 9px 0;
     min-width: 190px;
     max-width: 200px;
     background-color: transparent;
