@@ -1,10 +1,45 @@
-import { useState } from "preact/hooks"
+import { useEffect, useState } from "preact/hooks"
 import { useUserStore } from "../store/user"
 
 export function Search() {
   const { isPending, setIsPending, setIsError } = useUserStore((state) => state)
   const { user, setUser } = useUserStore((state) => state)
   const [form, setForm] = useState({ username: "" })
+
+  useEffect(() => {
+    const search = window.location.search.replace("?name=", "") || ""
+
+    async function handlePopState() {
+      setIsError(false, 0)
+      setIsPending(true)
+
+      const response = await fetch(`https://api.github.com/users/${search}`, {
+        headers: {
+          Accept: "application/vnd.github.v3+json",
+        },
+      })
+
+      if (!response.ok) {
+        console.log(await response.json())
+
+        setIsPending(false)
+        setIsError(true, response.status)
+        setUser({})
+        return
+      }
+
+      const data = await response.json()
+
+      setUser(data)
+      setIsPending(false)
+      setIsError(false, response.status)
+    }
+
+    if (search) {
+      setForm({ username: search })
+      handlePopState()
+    }
+  }, [])
 
   async function handleSubmit(e: Event) {
     e.preventDefault()
@@ -58,7 +93,11 @@ export function Search() {
         type="text"
         name="username"
         autoComplete={"off"}
-        onChange={(e) => setForm({ username: e.currentTarget.value })}
+        value={form.username}
+        onChange={(e) => {
+          window.history.pushState({}, "", `?name=${e.currentTarget.value}`)
+          setForm({ username: e.currentTarget.value })
+        }}
         placeholder="Search GitHub username…"
       />
       <button
