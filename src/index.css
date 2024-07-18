@@ -69,7 +69,7 @@
     --dark-quaternary-color: #1e2a47;
   }
 
-  [data-theme="light"] {
+  [data-theme='light'] {
     --body-background-color: var(--light-background-color-1);
     --header-title-color: var(--light-header-title-color);
     --theme-switcher-color: var(--light-tertiary-color);
@@ -87,7 +87,7 @@
     --skeleton-background-color: #eeeeee 8%, #dddddd 18%, #eeeeee 33%;
   }
 
-  [data-theme="dark"] {
+  [data-theme='dark'] {
     --body-background-color: var(--dark-tertiary-color);
     --theme-switcher-color: var(--dark-secondary-color);
     --header-title-color: var(--dark-secondary-color);
@@ -108,11 +108,11 @@
 }
 
 body {
-  font-family: "Space Mono", "Arial", monospace;
+  font-family: 'Space Mono', 'Arial', monospace;
   background-color: var(--body-background-color);
   transition: background-color 0.2s ease-in-out;
   width: 100vw;
-  height: 100vh;
+  max-height: 100vh;
 }
 
 #app {
