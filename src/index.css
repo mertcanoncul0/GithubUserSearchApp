@@ -110,7 +110,6 @@
 body {
   font-family: 'Space Mono', 'Arial', monospace;
   background-color: var(--body-background-color);
-  transition: background-color 0.2s ease-in-out;
   width: 100vw;
   max-height: 100vh;
 }
@@ -131,7 +130,6 @@ header {
     font-size: 1.625rem;
     font-weight: 700;
     color: var(--header-title-color);
-    transition: color 0.2s ease-in-out;
   }
 }
 
@@ -140,7 +138,6 @@ header {
   align-items: center;
   gap: 8px;
   color: var(--theme-switcher-color);
-  transition: color 0.2s ease-in-out;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 2.5px;
@@ -184,7 +181,6 @@ header {
 
 .search-form {
   background-color: var(--search-form-background-color);
-  transition: background-color 0.2s ease-in-out;
 
   display: flex;
   align-items: center;
@@ -198,14 +194,12 @@ header {
     width: 100%;
     background-color: transparent;
     color: var(--search-form-input-color);
-    transition: color 0.2s ease-in-out;
 
     &::placeholder {
       font-size: 13px;
       font-weight: 400;
       line-height: 25;
       color: var(--search-form-input-placeholder-color);
-      transition: color 0.2s ease-in-out;
     }
   }
 
@@ -256,21 +250,18 @@ header {
   & li.user-name {
     font-size: 1rem;
     color: var(--user-card-head-name-color);
-    transition: color 0.2s ease-in-out;
     font-weight: bold;
   }
 
   & li.user-login {
     font-size: 13px;
     color: var(--dark-primary-color);
-    transition: color 0.2s ease-in-out;
     margin-bottom: 6px;
   }
 
   & li.user-date {
     font-size: 13px;
     color: var(--user-card-head-date-color);
-    transition: color 0.2s ease-in-out;
   }
 }
 
@@ -279,12 +270,10 @@ header {
   font-size: 13px;
   line-height: 25px;
   color: var(--user-card-desc-color);
-  transition: color 0.2s ease-in-out;
 }
 
 .user-info {
   background-color: var(--user-card-info-background-color);
-  transition: background-color 0.2s ease-in-out;
 
   padding: 18px 14px 19px 15px;
   border-radius: 10px;
@@ -303,7 +292,6 @@ header {
       font-size: 11px;
       font-weight: 400;
       color: var(--user-card-info-title-color);
-      transition: color 0.2s ease-in-out;
       margin-bottom: 8px;
     }
 
@@ -312,7 +300,6 @@ header {
       font-weight: 700;
       display: block;
       color: var(--user-card-info-subtitle-color);
-      transition: color 0.2s ease-in-out;
     }
   }
 }
@@ -333,7 +320,6 @@ header {
     a {
       font-size: 13px;
       color: var(--user-card-link-color);
-      transition: color 0.2s ease-in-out;
     }
 
     &.null {
@@ -346,7 +332,6 @@ header {
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--header-title-color);
-  transition: color 0.2s ease-in-out;
   text-align: center;
 }
 
@@ -372,7 +357,6 @@ header {
 .skeleton-card {
   padding: 32px 24px 48px 24px;
   background-color: var(--user-card-background-color);
-  transition: background-color 0.2s ease-in-out;
   border-radius: 15px;
 }
 
@@ -414,7 +398,6 @@ header {
 
 .skeleton-card .skeleton-info {
   background-color: var(--user-card-info-background-color);
-  transition: background-color 0.2s ease-in-out;
   padding: 18px 14px 19px 15px;
   border-radius: 10px;
   margin-bottom: 24px;
