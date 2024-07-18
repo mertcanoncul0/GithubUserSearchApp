@@ -39,7 +39,7 @@ export function UserCard() {
           </li>
           <li className='user-login' aria-label='User login name'>
             <a href={`https://github.com/${user?.login}`} target='_blank'>
-              {user?.login}
+              @{user?.login}
             </a>
           </li>
           <li className='user-date' aria-label='Account creation date'>
