@@ -8,7 +8,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   document.body.dataset.theme = isDarkTheme ? 'dark' : 'light'
 
-  // Tüm elementlere geçiş stilini ekleyin
+  // Add transition styling to required elements
   const style = document.createElement('style')
   style.innerHTML = `
     body, header h1, button, ul, ul span, input, input::placeholder, .search-form, p, .user-card, li, a, svg path {
