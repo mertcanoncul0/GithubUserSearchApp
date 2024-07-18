@@ -195,7 +195,6 @@ header {
   border-radius: 16px;
 
   & input {
-    min-width: 190px;
     width: 100%;
     background-color: transparent;
     color: var(--search-form-input-color);
