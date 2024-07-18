@@ -1,13 +1,13 @@
-import { useEffect, useState } from "preact/hooks"
-import { useUserStore } from "../store/user"
+import { useEffect, useState } from 'preact/hooks'
+import { useUserStore } from '../store/user'
 
 export function Search() {
   const { isPending, setIsPending, setIsError } = useUserStore((state) => state)
   const { user, setUser } = useUserStore((state) => state)
-  const [form, setForm] = useState({ username: "" })
+  const [form, setForm] = useState({ username: '' })
 
   useEffect(() => {
-    const search = window.location.search.replace("?name=", "") || ""
+    const search = window.location.search.replace('?name=', '') || ''
 
     async function handleSearchState() {
       setIsError(false, 0)
@@ -15,13 +15,11 @@ export function Search() {
 
       const response = await fetch(`https://api.github.com/users/${search}`, {
         headers: {
-          Accept: "application/vnd.github.v3+json",
+          Accept: 'application/vnd.github.v3+json',
         },
       })
 
       if (!response.ok) {
-        console.log(await response.json())
-
         setIsPending(false)
         setIsError(true, response.status)
         setUser({})
@@ -48,7 +46,7 @@ export function Search() {
 
     if (
       !form.username ||
-      form.username === "" ||
+      form.username === '' ||
       form.username.toLocaleLowerCase() === user?.login?.toLowerCase()
     ) {
       setIsPending(false)
@@ -59,14 +57,12 @@ export function Search() {
       `https://api.github.com/users/${form.username}`,
       {
         headers: {
-          Accept: "application/vnd.github.v3+json",
+          Accept: 'application/vnd.github.v3+json',
         },
       }
     )
 
     if (!response.ok) {
-      console.log(await response.json())
-
       setIsPending(false)
       setIsError(true, response.status)
       setUser({})
@@ -81,32 +77,32 @@ export function Search() {
   }
 
   return (
-    <form className="search-form" onSubmit={handleSubmit}>
-      <div className="search-form-controller">
+    <form className='search-form' onSubmit={handleSubmit}>
+      <div className='search-form-controller'>
         <button
-          type="submit"
-          aria-label="Submit search github form"
+          type='submit'
+          aria-label='Submit search github form'
           disabled={isPending}
         >
-          <img src="/search.svg" width={20} height={20} alt="Search Icon" />
+          <img src='/search.svg' width={20} height={20} alt='Search Icon' />
         </button>
         <input
-          type="text"
-          name="username"
-          autoComplete={"off"}
+          type='text'
+          name='username'
+          autoComplete={'off'}
           value={form.username}
           onChange={(e) => {
-            window.history.pushState({}, "", `?name=${e.currentTarget.value}`)
+            window.history.pushState({}, '', `?name=${e.currentTarget.value}`)
             setForm({ username: e.currentTarget.value })
           }}
-          placeholder="Search GitHub username…"
+          placeholder='Search GitHub username…'
         />
       </div>
       <button
         disabled={isPending}
-        className="search-button"
-        type="submit"
-        aria-label="Submit search github form"
+        className='search-button'
+        type='submit'
+        aria-label='Submit search github form'
       >
         Search
       </button>
